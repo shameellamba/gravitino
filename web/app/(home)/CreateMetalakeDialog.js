@@ -85,6 +85,10 @@ const CreateMetalakeDialog = props => {
   }
 
   const handleClose = () => {
+    if (innerProps.length === 0) {
+      setDialogTitle('No Table'); // Updating dialog title to 'No Table'
+      return; // Preventing dialog closure
+    }
     reset({ name: '', comment: '' })
     setInnerProps([])
     setOpen(false)
