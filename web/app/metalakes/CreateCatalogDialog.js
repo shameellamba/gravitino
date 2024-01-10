@@ -140,7 +140,13 @@ const CreateCatalogDialog = props => {
     }
   }
 
+  const [dialogTitle, setDialogTitle] = useState(''); // State for dialog title
+
   const handleClose = () => {
+    if (innerProps.length === 0) {
+      setDialogTitle('No Table'); // Updating dialog title to indicate no table
+      return; // Preventing dialog closure
+    }
     reset()
     resetPropsFields(providers, 0)
     setInnerProps(providers[0].defaultProps)
